@@ -5,7 +5,7 @@ import google.generativeai as genai
 import random
 import ast
 
-GEMINI_API_KEY='XXXX'
+GEMINI_API_KEY=os.getenv("GOOGLE_API_KEY")
 
 app = Flask(__name__, static_folder='static')
 

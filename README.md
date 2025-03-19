@@ -60,7 +60,14 @@ source venv/bin/activate
 3. **Install dependencies**
 
 ```bash
-pip install -r requirements.txt
+# Install Flask web framework
+pip install Flask Flask-Cors
+
+# Install database libraries
+pip install SQLAlchemy
+
+# Install API integrations
+pip install google-generativeai gnews requests
 ```
 
 4. **Set up environment variables**
@@ -69,7 +76,6 @@ Create a `.env` file in the root directory with the following variables:
 
 ```
 GOOGLE_API_KEY=your_google_api_key
-GNEWS_API_KEY=your_gnews_api_key
 ```
 
 5. **Initialize the database**
@@ -79,6 +85,7 @@ python news_processor.py
 ```
 
 6. **Run the application**
+Open another terminal and run
 
 ```bash
 python app.py
@@ -86,7 +93,7 @@ python app.py
 
 7. **Access the app**
 
-Open your browser and navigate to `http://localhost:5000`
+Open your browser and navigate to `http://localhost:5000` (5000 is the default port for Flask)
 
 ## Extending the App
 
@@ -106,7 +113,6 @@ cd world-prayer-app
 ```bash
 # Create and activate virtual environment as shown in the Deployment section
 # Install dependencies
-pip install -r requirements.txt
 ```
 
 4. **Create a new branch for your feature**
@@ -163,11 +169,11 @@ git push origin feature/your-feature-name
 
 ## Contributing
 
-We welcome contributions from developers of all backgrounds and experience levels! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduct and the process for submitting pull requests.
+We welcome contributions from developers of all backgrounds and experience levels! Thank you so much for your contributions.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## Acknowledgments
 

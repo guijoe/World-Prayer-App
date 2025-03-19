@@ -18,7 +18,7 @@ from gemma_model import GemmaModel, GemmaResponse
 news_cache = {}
 country_cache = {}
 
-GEMINI_API_KEY='XXXX'
+GEMINI_API_KEY=os.getenv("GOOGLE_API_KEY")
 
 language = 'English'
 
