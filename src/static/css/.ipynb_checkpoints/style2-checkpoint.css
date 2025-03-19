@@ -1,0 +1,409 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+    background: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#title {
+    margin: 20px 0;
+    font-size: 48px;
+    position: absolute;
+    top: 10px;
+    width: 100%;
+    text-align: center;
+    z-index: 10;
+    /*left: 100px;
+    padding: 20px;*/
+}
+#search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    position: absolute;
+    top: 100px;
+    width: 100%;
+    justify-content: center;
+    z-index: 10;
+}
+/*
+#search-input {
+    padding: 10px;
+    width: 300px;
+    border: none;
+    border-radius: 1%;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 1);
+    margin-right: 10px;
+}
+*/
+#country-dropdown {
+    padding: 10px;
+    width: 250px;
+    /*border: none;*/
+    border-radius: 1%;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 1);
+    margin-right: 10px;
+}
+#random-country {
+    padding: 10px 20px;
+    /*border: none;*/
+    border-radius: 1%;
+    font-size: 16px;
+    background: rgb(16, 139, 221);
+    color: white;
+    /*cursor: pointer;*/
+    width: 250px;
+    /*height: 100px;*/
+}
+#left-panel, #right-panel {
+    width: 20%;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    position: absolute;
+    top: 200px;
+    bottom: 120px;
+    z-index: 10;
+    background: rgba(0, 0, 0, 0.3);
+    line-height: 1.5;
+}
+#left-panel {
+    left: 100px;
+}
+#right-panel {
+    right: 100px;
+}
+#globeViz {
+    /*width: 100vw;
+    height: 100vh;
+    top: 100px;*/
+    z-index: 0;
+}
+h2 {
+    margin-top: 0;
+}
+ul {
+    padding-left: 20px;
+}
+
+
+/* Responsive css */
+/* Responsive styles for smaller screens
+@media (max-width: 768px) {
+    #main-content {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #left-panel, #right-panel {
+        width: 90%;
+        position: static;
+        margin: 10px 0;
+    }
+
+    #globeViz {
+        width: 100%;
+        height: 60vh;
+    }
+}*/
+
+/* Styles for screens small screens such as the iPhone SE */
+@media (max-width: 375px) and (max-height: 740px) {
+    #title {
+        margin: 20px 0;
+        font-size: 36px;
+        position: absolute;
+        /*top: 10px;*/
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+        top: 0px;
+    }
+    
+    #search-container {
+        top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;  /* Adds space between the dropdown and button */
+        margin-bottom: 0px;
+    }
+    
+    #country-dropdown {
+        padding: 0px;
+        width: 80%;
+        height: 30px;
+        border-radius: 1%;
+        font-size: 16px;
+        margin-right: 0px;
+    }
+    
+    #random-country {
+        padding: 0px;
+        width: 80%;
+        height: 30px;
+        border-radius: 1%;
+        font-size: 16px;
+        background: rgb(16, 139, 221);
+        color: white;
+        width: 80%;
+    }
+    
+    #left-panel, #right-panel {
+        top: 420px;
+        width: 50%;
+        padding: 2%;
+        bottom: 20px;
+    }
+    
+    #globeViz {
+        position: relative;
+        top: -40px;
+    }
+    
+    #left-panel {
+        left: 1%;
+    }
+    
+    #right-panel {
+        right: 1%;
+    }
+    
+    h2 {
+        font-size: 1.1em;
+    }
+    
+    h4 {
+        font-size: 0.9em;
+    }
+    
+}
+
+/* Styles for screens small screens such as the iPhone 12 Pro */
+@media ((min-width: 376px) and (max-width: 390px)) and 
+    ((min-height: 668px) and (max-height: 844px)) {
+    #title {
+        margin: 20px 0;
+        font-size: 36px;
+        position: absolute;
+        /*top: 10px;*/
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+        top: 0px;
+    }
+    
+    #search-container {
+        top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 0px;
+    }
+    
+    #country-dropdown {
+        padding: 0px;
+        width: 80%;
+        height: 30px;
+        border-radius: 1%;
+        font-size: 16px;
+        margin-right: 0px;
+    }
+    
+    #random-country {
+        padding: 0px;
+        width: 80%;
+        height: 30px;
+        border-radius: 1%;
+        font-size: 16px;
+        background: rgb(16, 139, 221);
+        color: white;
+        width: 80%;
+    }
+    
+    #left-panel, #right-panel {
+        top: 480px;
+        width: 50%;
+        padding: 2%;
+        bottom: 20px;
+    }
+    
+    #globeViz {
+        position: relative;
+        top: -100px;
+    }
+    
+    #left-panel {
+        left: 1%;
+    }
+    
+    #right-panel {
+        right: 1%;
+    }
+    
+    h2 {
+        font-size: 1.1em;
+    }
+    
+    h4 {
+        font-size: 0.9em;
+    }
+    
+}
+
+/* Styles for screens small screens such as the iPhone XR */
+@media ((min-width: 391px) and (max-width: 430px)) and 
+    ((min-height: 845px) and (max-height: 932px)) {
+    #title {
+        margin: 20px 0;
+        font-size: 36px;
+        position: absolute;
+        /*top: 10px;*/
+        width: 100%;
+        text-align: center;
+        z-index: 10;
+        top: 0px;
+    }
+    
+    #search-container {
+        top: 80px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 5px;
+        margin-bottom: 0px;
+    }
+    
+    #country-dropdown {
+        padding: 0px;
+        width: 80%;
+        height: 30px;
+        border-radius: 1%;
+        font-size: 16px;
+        margin-right: 0px;
+    }
+    
+    #random-country {
+        padding: 0px;
+        width: 80%;
+        height: 30px;
+        border-radius: 1%;
+        font-size: 16px;
+        background: rgb(16, 139, 221);
+        color: white;
+        width: 80%;
+    }
+    
+    #left-panel, #right-panel {
+        top: 520px;
+        width: 50%;
+        padding: 2%;
+        bottom: 20px;
+    }
+    
+    #globeViz {
+        position: relative;
+        top: -120px;
+    }
+    
+    #left-panel {
+        left: 1%;
+    }
+    
+    #right-panel {
+        right: 1%;
+    }
+    
+    h2 {
+        font-size: 1.1em;
+    }
+    
+    h4 {
+        font-size: 0.9em;
+    }
+    
+}
+
+/*
+@media screen and (max-width: 768px) {
+    #left-panel, #right-panel {
+        top: 500px;
+        width: 50%;
+        padding: 2%;
+        height: 28vh;
+    }
+    
+    #left-panel {
+        left: 1%;
+    }
+    
+    #right-panel {
+        right: 1%;
+    }
+    
+    #globeViz {
+        position: relative;
+        top: -40px;
+    }
+    
+    h2 {
+        font-size: 1.3em;
+    }
+    
+    h1 {
+        font-size: 1.5em;
+    }
+}
+*/
+
+/* Base styles for all screen sizes */
+h1 {
+    font-size: 2rem; /* Default font size */
+    line-height: 1.2;
+    margin: 0;
+}
+
+/* Styles for screens larger than 1200px (e.g., large desktops) */
+@media (min-width: 1200px) {
+    h1 {
+        font-size: 3rem;
+    }
+}
+
+/* Styles for screens between 992px and 1199px (e.g., desktops and large tablets) */
+@media (min-width: 992px) and (max-width: 1199px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* Styles for screens between 768px and 991px (e.g., tablets and small desktops) */
+@media (min-width: 768px) and (max-width: 991px) {
+    h1 {
+        font-size: 2rem;
+    }
+}
+
+/* Styles for screens between 576px and 767px (e.g., large smartphones) */
+@media screen and (min-width: 576px) and (max-width: 767px) {
+    h1 {
+        font-size: 0.5rem;
+    }
+    #title{
+        font-size: 0.5rem;
+    }
+}
+
+/* Styles for screens smaller than 576px (e.g., small smartphones) */
+@media (max-width: 575px) {
+    h1 {
+        font-size: 1.25rem;
+    }
+}

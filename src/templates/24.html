@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>24/7 Prayer Chain For the USA</title>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.css' rel='stylesheet' />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.10.2/fullcalendar.min.js'></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            color: white;/*#bb86fc;*/
+            margin-bottom: 20px;
+        }
+        #calendar {
+            background-color: #1e1e1e;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .fc-view-container {
+            background-color: #2c2c2c;
+        }
+        .fc-day-header {
+            background-color: #3700b3;
+            color: #ffffff;
+        }
+        .fc-time-grid-event {
+            background-color: #03dac6;
+            border: 1px solid #018786;
+        }
+        .fc-time-grid-event .fc-title {
+            color: #000000;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>24/7 Prayer Chain For the USA</h1>
+        <div id='calendar'></div>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('#calendar').fullCalendar({
+                defaultView: 'agendaWeek',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'agendaWeek,agendaDay'
+                },
+                selectable: true,
+                selectHelper: true,
+                slotDuration: '01:00:00',
+                slotLabelInterval: '01:00:00',
+                slotLabelFormat: 'h:mm a',
+                events: '/24/get_events',
+                eventColor: '#03dac6',
+                eventTextColor: '#000000',
+                select: function(start, end) {
+                    var name = prompt('Enter your name for prayer booking:');
+                    var eventData;
+                    if (name) {
+                        eventData = {
+                            title: name,
+                            start: start.format(),
+                            end: end.format()
+                        };
+                        $.ajax({
+                            url: '/24/add_event',
+                            type: 'POST',
+                            data: JSON.stringify(eventData),
+                            contentType: 'application/json',
+                            success: function(response) {
+                                $('#calendar').fullCalendar('renderEvent', eventData, true);
+                            }
+                        });
+                    }
+                    $('#calendar').fullCalendar('unselect');
+                },
+                eventRender: function(event, element) {
+                    element.find('.fc-title').html(event.title);
+                }
+            });
+        });
+    </script>
+</body>
+</html>

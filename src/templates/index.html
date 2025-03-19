@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-ETW9RS85QB"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-ETW9RS85QB');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pray for the World</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://unpkg.com/globe.gl"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/18.6.4/tween.umd.js"></script>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    
+</head>
+<body>
+    <div id="app-container">
+        <h1 id="title">Pray for the World</h1>
+
+        <div id="search-container">
+            <!--input type="text" id="search-input" placeholder="Choose a Country to pray for?"-->
+            <!--label for="countryDropdown">Select a Country:</label-->
+            <select id="country-dropdown"></select>
+            <button id="random-country">Choose for me</button>
+        </div>
+
+        <div id="main-content">
+            <div id="left-panel" class="info-panel"></div>
+            <div id="globeViz"></div>
+            <div id="right-panel" class="info-panel"></div>
+        </div>
+    </div>
+
+    <script>
+        const newsData = {{ data|tojson|safe }};
+    </script>
+    <script src="{{ url_for('static', filename='js/globe.js') }}"></script>
+</body>
+</html>
