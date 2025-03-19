@@ -97,7 +97,7 @@ Open your browser and navigate to `http://localhost:5000`
 2. **Clone your fork**
 
 ```bash
-git clone https://github.com/yourusername/world-prayer-app.git
+git clone https://github.com/guijoe/world-prayer-app.git
 cd world-prayer-app
 ```
 
@@ -119,12 +119,9 @@ git checkout -b feature/your-feature-name
 
 ```
 world-prayer-app/
-├── .ipynb_checkpoints/      # Jupyter notebook checkpoints
-├── __pycache__/             # Python cache files
 ├── instance/                # Flask instance folder
 ├── static/                  # Static files (CSS, JS, images)
 ├── templates/               # HTML templates
-├── .DS_Store                # macOS system file
 ├── app.py                   # Main Flask application
 ├── news_data.db             # Main SQLite database
 ├── news_data_de.db          # German news database
