@@ -3,11 +3,11 @@
 let globe, countries = [], autoRotate = true, highlightedCountry = null, rightPanel, leftPanel;
 
 function createGlobe() {
-    globe = Globe()
+    globe = new Globe()
         (document.getElementById('globeViz'))
-        .globeImageUrl('//unpkg.com/three-globe/example/img/earth-blue-marble.jpg')
-        .bumpImageUrl('//unpkg.com/three-globe/example/img/earth-topology.png')
-        .backgroundImageUrl('//unpkg.com/three-globe/example/img/night-sky.png')
+        .globeImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg')
+        .bumpImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/earth-topology.png')
+        .backgroundImageUrl('https://cdn.jsdelivr.net/npm/three-globe/example/img/night-sky.png')
         .polygonAltitude(0.06)
         .polygonCapColor(() => 'rgba(200, 200, 200, 0.3)')
         .polygonSideColor(() => 'rgba(0, 100, 0, 0.15)')
@@ -16,31 +16,11 @@ function createGlobe() {
     
     //globe.centerAt([40.7128, -74.0060]);
     
-    
+    //console.log(globe)
     globe.atmosphereColor('lightskyblue').atmosphereAltitude(0.25);
     
     const globeContainer = document.getElementById('globeContainer');
-    //console.log(globeContainer);
-/*
-function moveGlobe(left, top) {
-  globeContainer.style.left = `${left}px`;
-  globeContainer.style.top = `${top}px`;
-}
-*/
-    /*
-    // Check if the screen width is 768px or smaller
-    if (window.innerWidth <= 375 && window.innerHeight <= 667) {
-      // Adjust the camera's field of view or position for smaller screens
-      //globe.camera().fov = 1000; // Higher FOV makes the globe smaller
-      globe.camera().position.set(0, 0, 600); // Increase Z value for a smaller globe
-    } else if ((window.innerWidth > 375 && window.innerWidth <= 390)
-          && (window.innerHeight > 667 && window.innerHeight <= 844)) {
-        globe.camera().position.set(0, 0, 650);
-    } else if ((window.innerWidth > 390 && window.innerWidth <= 430)
-          && (window.innerHeight > 844 && window.innerHeight <= 932)) {
-        globe.camera().position.set(0, 0, 650);
-    }
-    */
+    
     if (window.innerWidth <= 768) {
         globe.camera().position.set(0, 0, 600); // Increase Z value for a smaller globe
     }
@@ -100,7 +80,9 @@ function updateLeftPanel(news, countryInfo, urls) {
         //console.log(lastPart);
         //console.log(urls[index])
         newsHtml += `
-            <h4>${restOfArticle} - <a href="${url}">${lastPart}</a></h4>`; //<a href=${url}> ${article}</a>
+            <h4>${restOfArticle} - <a${url ? ` href="${url}" target="_blank" rel="noopener noreferrer"` : ''}>${lastPart}</a></h4>`;
+        //newsHtml += `
+        //    <h4>${restOfArticle} - <a href="${url}">${lastPart}</a></h4>`; //<a href=${url}> ${article}</a>
           //  <p>${article.description}</p>
         //`;
     });
@@ -178,7 +160,7 @@ function init() {
 
     createGlobe();
     createPanels();
-    
+    //*
     // Get the dropdown element
     const dropdown = document.getElementById('country-dropdown');
 
@@ -258,6 +240,8 @@ function init() {
     });
 
     animate();
+    //*/
+    
 }
 
 //*

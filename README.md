@@ -171,6 +171,14 @@ git push origin feature/your-feature-name
 
 We welcome contributions from developers of all backgrounds and experience levels! Thank you so much for your contributions.
 
+## Support the Project
+
+If you find the World Prayer App valuable and would like to support its development, you can buy me a coffee:
+<a href="https://paypal.me/JoelDokmegang?country.x=US&locale.x=en_US" target="_blank">
+  <img src="https://img.shields.io/badge/PayPal-Buy%20me%20a%20coffee-blue.svg?logo=paypal&style=for-the-badge" alt="Buy Me A Coffee" />
+</a>
+Your support helps maintain the app and develop new features. Thank you for your generosity!
+
 ## License
 
 This project is licensed under the MIT License.
